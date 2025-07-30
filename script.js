@@ -16,15 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
         interactiveModeLabel: document.getElementById('interactiveModeLabel'),
     };
 
-    const numpad = {
-        container: document.getElementById('customNumpad'),
-        buttons: document.querySelectorAll('.numpad-btn'),
-        clearBtn: document.getElementById('numpad-clear'),
-        backspaceBtn: document.getElementById('numpad-backspace'),
-        doneBtn: document.getElementById('numpad-done'),
+    const scroller = {
+        modal: document.getElementById('scrollerModal'),
+        container: document.getElementById('scroller-container'),
+        strip: document.getElementById('number-strip'),
+        selectedValue: document.getElementById('selectedValue'),
+        confirmBtn: document.getElementById('scroller-confirm'),
     };
 
     let activeInput = null;
+    let isScrollerPopulated = false;
+    const ITEM_WIDTH = 60; // Deve ser o mesmo valor do .number-item no CSS
     let state = {};
 
     function resetState(fullReset = true) {
@@ -104,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (isInput) {
                         cell.type = 'number';
                         cell.value = Math.floor(Math.random() * 10);
-                        // Lógica para desativar teclado padrão em telas pequenas
                         if (window.innerWidth < 768) {
                              cell.setAttribute('readonly', true);
                         }
@@ -341,43 +342,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- LÓGICA DO TECLADO NUMÉRICO CUSTOMIZADO ---
+    // --- LÓGICA DO SELETOR POR ROLAGEM ---
 
-    function showNumpad(inputElement) {
-        if (window.innerWidth >= 768) return; // Não mostra em telas grandes
-
-        activeInput = inputElement;
-        numpad.container.classList.remove('hidden');
-        numpad.container.classList.add('fade-in-up');
-        activeInput.value = ''; // Limpa o valor para nova inserção
+    function populateScroller() {
+        if (isScrollerPopulated) return;
+        const fragment = document.createDocumentFragment();
+        for (let i = -999; i <= 999; i++) {
+            const item = document.createElement('div');
+            item.classList.add('number-item');
+            if (i % 10 === 0) item.classList.add('major');
+            else if (i % 5 === 0) item.classList.add('minor');
+            item.textContent = i;
+            item.dataset.value = i;
+            fragment.appendChild(item);
+        }
+        scroller.strip.appendChild(fragment);
+        isScrollerPopulated = true;
     }
 
-    function hideNumpad() {
-        numpad.container.classList.add('hidden');
-        numpad.container.classList.remove('fade-in-up');
+    function showScroller(inputElement) {
+        if (window.innerWidth >= 768) return; // Não mostra em telas grandes
+        
+        activeInput = inputElement;
+        populateScroller();
+        
+        const initialValue = parseInt(activeInput.value, 10) || 0;
+        // Calcula a posição de scroll para centralizar o valor inicial
+        const scrollPosition = (initialValue + 999) * ITEM_WIDTH - (scroller.container.clientWidth / 2) + (ITEM_WIDTH / 2);
+        
+        scroller.container.scrollLeft = scrollPosition;
+        scroller.selectedValue.textContent = initialValue;
+        scroller.modal.classList.remove('hidden');
+    }
+
+    function hideScroller() {
+        scroller.modal.classList.add('hidden');
         activeInput = null;
     }
 
-    function handleNumpadInput(e) {
-        if (!activeInput) return;
-        const value = e.target.textContent;
-        activeInput.value += value;
+    function updateSelectedValue() {
+        if (!scroller.modal.classList.contains('hidden')) {
+            const scrollCenter = scroller.container.scrollLeft + (scroller.container.clientWidth / 2);
+            const selectedIndex = Math.round(scrollCenter / ITEM_WIDTH);
+            const selectedValue = selectedIndex - 999;
+            scroller.selectedValue.textContent = selectedValue;
+        }
     }
 
+    function confirmScrollerSelection() {
+        if (activeInput) {
+            activeInput.value = scroller.selectedValue.textContent;
+        }
+        hideScroller();
+    }
+    
     controls.matrixContainer.addEventListener('click', (e) => {
         if (e.target.matches('.matrix-cell[type="number"]')) {
-            showNumpad(e.target);
+            showScroller(e.target);
         }
     });
 
-    numpad.buttons.forEach(btn => btn.addEventListener('click', handleNumpadInput));
-    numpad.clearBtn.addEventListener('click', () => { if(activeInput) activeInput.value = ''; });
-    numpad.backspaceBtn.addEventListener('click', () => {
-        if (activeInput) activeInput.value = activeInput.value.slice(0, -1);
-    });
-    numpad.doneBtn.addEventListener('click', hideNumpad);
+    scroller.container.addEventListener('scroll', updateSelectedValue);
+    scroller.confirmBtn.addEventListener('click', confirmScrollerSelection);
 
-    // --- FIM DA LÓGICA DO TECLADO ---
+    // --- FIM DA LÓGICA DO SELETOR ---
 
     controls.generateBtn.addEventListener('click', generateMatrices);
     controls.controlBtn.addEventListener('click', handleControlClick);

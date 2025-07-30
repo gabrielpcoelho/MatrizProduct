@@ -79,22 +79,20 @@
 
     </div>
 
-    <div id="customNumpad" class="hidden fixed bottom-0 left-0 w-full bg-gray-200 p-2 shadow-lg rounded-t-xl z-50">
-        <div class="grid grid-cols-3 gap-2 text-xl font-bold">
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">1</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">2</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">3</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">4</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">5</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">6</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">7</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">8</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">9</button>
-            <button id="numpad-clear" class="py-3 bg-yellow-400 rounded-lg shadow">C</button>
-            <button class="numpad-btn py-3 bg-white rounded-lg shadow">0</button>
-            <button id="numpad-backspace" class="py-3 bg-red-500 text-white rounded-lg shadow">&larr;</button>
+    <div id="scrollerModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl p-4 w-11/12 max-w-md">
+            <h3 class="text-center font-bold text-lg mb-4">Selecione um número</h3>
+            
+            <div id="scroller-container" class="relative py-4 overflow-x-scroll bg-gray-100 rounded-lg">
+                <div id="number-strip" class="inline-flex items-center h-16">
+                    </div>
+                <div class="absolute top-0 left-1/2 w-1 h-full bg-red-500 transform -translate-x-1/2 rounded-full"></div>
+            </div>
+    
+            <p class="text-center mt-4">Selecionado: <b id="selectedValue" class="text-2xl">0</b></p>
+    
+            <button id="scroller-confirm" class="w-full mt-4 py-3 bg-blue-600 text-white font-bold rounded-lg shadow">Confirmar</button>
         </div>
-        <button id="numpad-done" class="w-full mt-2 py-3 bg-blue-600 text-white font-bold rounded-lg shadow">Pronto</button>
     </div>
 
     <script src="script.js"></script>
