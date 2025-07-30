@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
         interactiveModeLabel: document.getElementById('interactiveModeLabel'),
     };
 
+    const numpad = {
+        container: document.getElementById('customNumpad'),
+        buttons: document.querySelectorAll('.numpad-btn'),
+        clearBtn: document.getElementById('numpad-clear'),
+        backspaceBtn: document.getElementById('numpad-backspace'),
+        doneBtn: document.getElementById('numpad-done'),
+    };
+
+    let activeInput = null;
     let state = {};
 
     function resetState(fullReset = true) {
@@ -95,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (isInput) {
                         cell.type = 'number';
                         cell.value = Math.floor(Math.random() * 10);
+                        // Lógica para desativar teclado padrão em telas pequenas
+                        if (window.innerWidth < 768) {
+                             cell.setAttribute('readonly', true);
+                        }
                     } else {
                         cell.textContent = '?';
                         cell.classList.add('bg-gray-200');
@@ -327,6 +340,44 @@ document.addEventListener('DOMContentLoaded', () => {
             controls.interactiveModeLabel.classList.add('text-gray-400');
         }
     }
+
+    // --- LÓGICA DO TECLADO NUMÉRICO CUSTOMIZADO ---
+
+    function showNumpad(inputElement) {
+        if (window.innerWidth >= 768) return; // Não mostra em telas grandes
+
+        activeInput = inputElement;
+        numpad.container.classList.remove('hidden');
+        numpad.container.classList.add('fade-in-up');
+        activeInput.value = ''; // Limpa o valor para nova inserção
+    }
+
+    function hideNumpad() {
+        numpad.container.classList.add('hidden');
+        numpad.container.classList.remove('fade-in-up');
+        activeInput = null;
+    }
+
+    function handleNumpadInput(e) {
+        if (!activeInput) return;
+        const value = e.target.textContent;
+        activeInput.value += value;
+    }
+
+    controls.matrixContainer.addEventListener('click', (e) => {
+        if (e.target.matches('.matrix-cell[type="number"]')) {
+            showNumpad(e.target);
+        }
+    });
+
+    numpad.buttons.forEach(btn => btn.addEventListener('click', handleNumpadInput));
+    numpad.clearBtn.addEventListener('click', () => { if(activeInput) activeInput.value = ''; });
+    numpad.backspaceBtn.addEventListener('click', () => {
+        if (activeInput) activeInput.value = activeInput.value.slice(0, -1);
+    });
+    numpad.doneBtn.addEventListener('click', hideNumpad);
+
+    // --- FIM DA LÓGICA DO TECLADO ---
 
     controls.generateBtn.addEventListener('click', generateMatrices);
     controls.controlBtn.addEventListener('click', handleControlClick);
