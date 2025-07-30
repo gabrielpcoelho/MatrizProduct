@@ -23,36 +23,45 @@ Esta ferramenta é 100% online e não requer nenhuma instalação. Basta acessar
 
 > ## **https://matrizproduct.netlify.app/**
 
+## 💡 Recomendações de Uso
+
+### Melhor Experiência em Notebooks/Desktops
+
+Para aproveitar ao máximo todos os detalhes visuais e painéis de informação, a experiência de uso é significativamente melhor em telas maiores, como as de notebooks ou desktops.
+
+### Em Dispositivos Móveis.
+
+* **Ative a Versão para Desktop:** Para uma visualização ainda mais completa, ative a opção **"Site para computador"** ou **"Versão para desktop"** no menu do seu navegador. Isso fará com que a página seja carregada como em um notebook, melhorando a disposição dos painéis. O nome exato desta opção pode variar dependendo do seu navegador (Chrome, Safari, etc.).
+
+  *Veja um exemplo de onde encontrar a opção no menu do seu navegador:*
+  ![Exemplo da opção 'Site para computador'](URL_DA_SUA_IMAGEM_AQUI.png)
+
+### Sugestão para Uso em Sala de Aula
+
+1. **Apresentação Inicial:** O professor pode projetar a ferramenta em um datashow com o **Modo Apresentação** ativado. Isso serve como uma excelente introdução visual para explicar o fluxo de operações de forma clara e dinâmica para toda a turma.
+2. **Prática sem Auxílio:** Após a explicação, os alunos podem ser desafiados a resolver exercícios no caderno, sem o auxílio da ferramenta, para solidificar o aprendizado inicial.
+3. **Estudo Individual:** Posteriormente, a ferramenta pode ser recomendada como um recurso para estudo em casa. Os alunos devem, preferencialmente, utilizar um computador para acessar o **Modo Interativo**, que lhes permitirá praticar, verificar suas respostas e tirar dúvidas sobre etapas específicas do cálculo.
+
+![Screenshot da Ferramenta](imagens/image.png)
+
 ## ⚙️ Como a Ferramenta Funciona
 
 Esta aplicação educacional foi projetada para desmistificar um dos tópicos mais desafiadores da álgebra linear para alunos do ensino médio. Ela oferece uma experiência visual e prática, permitindo que os usuários aprendam no seu próprio ritmo e de acordo com seu estilo de aprendizagem.
 
 ### 1. Configuração das Matrizes
+
 * **Escolha das Dimensões:** O usuário tem controle total sobre as dimensões das matrizes.
 * **Validação Instantânea:** A ferramenta informa em tempo real se a multiplicação é matematicamente possível.
 * **Geração e Edição:** As matrizes são geradas com valores aleatórios, mas todos os campos são editáveis.
 
 ### 2. A Escolha do Modo de Aprendizagem
+
 * **Modo Apresentação (Para Aprender Observando):** Ideal para a primeira exposição ao tópico, a ferramenta resolve tudo automaticamente.
 * **Modo Interativo (Para Aprender Praticando):** Transforma o aprendizado em uma experiência ativa, desafiando o usuário a calcular cada etapa.
 
 ### 3. Visualização e Resultado Final
+
 A ferramenta oferece um feedback claro com um log de operações para a célula atual e, ao final, um registro completo de todos os cálculos.
-
-![Screenshot da Ferramenta](imagens/image.png)
-
-## 💡 Recomendações de Uso
-
-### Melhor Experiência em Notebooks/Desktops
-Para aproveitar ao máximo todos os detalhes visuais e painéis de informação, a experiência de uso é significativamente melhor em telas maiores, como as de notebooks ou desktops.
-
-### Em Dispositivos Móveis
-Caso utilize um smartphone, **recomendo fortemente girar o celular para a posição horizontal (modo paisagem)**. Isso garante que a interface se organize da melhor forma possível na tela.
-
-### Sugestão para Uso em Sala de Aula
-1.  **Apresentação Inicial:** O professor pode projetar a ferramenta em um datashow com o **Modo Apresentação** ativado. Isso serve como uma excelente introdução visual para explicar o fluxo de operações de forma clara e dinâmica para toda a turma.
-2.  **Prática sem Auxílio:** Após a explicação, os alunos podem ser desafiados a resolver exercícios no caderno, sem o auxílio da ferramenta, para solidificar o aprendizado inicial.
-3.  **Estudo Individual:** Posteriormente, a ferramenta pode ser recomendada como um recurso para estudo em casa. Os alunos devem, preferencialmente, utilizar um computador para acessar o **Modo Interativo**, que lhes permitirá praticar, verificar suas respostas e tirar dúvidas sobre etapas específicas do cálculo.
 
 ## 🚀 Tecnologias Utilizadas
 
