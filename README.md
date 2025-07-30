@@ -34,7 +34,7 @@ Para aproveitar ao máximo todos os detalhes visuais e painéis de informação,
 * **Ative a Versão para Desktop:** Para uma visualização ainda mais completa, ative a opção **"Site para computador"** ou **"Versão para desktop"** no menu do seu navegador. Isso fará com que a página seja carregada como em um notebook, melhorando a disposição dos painéis. O nome exato desta opção pode variar dependendo do seu navegador (Chrome, Safari, etc.).
 
   *Veja um exemplo de onde encontrar a opção no menu do seu navegador:*
-  ![Exemplo da opção 'Site para computador'](imagens/imagen2.png)
+  ![Exemplo da opção 'Site para computador'](imagens/imagen2.jpeg)
 
 ### Sugestão para Uso em Sala de Aula
 
