@@ -1,0 +1,76 @@
+body { font-family: 'Inter', sans-serif; }
+
+/* Remove setas de input[type=number] */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type=number] { 
+    -moz-appearance: textfield; 
+}
+
+/* Animação */
+.fade-in { 
+    animation: fadeIn 0.5s ease-in-out; 
+}
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Grid da Matriz */
+.matrix-grid { 
+    display: grid; 
+    gap: 0.5rem; 
+    padding: 0.75rem; 
+    border: 2px solid #D1D5DB; 
+    border-radius: 0.5rem; 
+    background-color: #F9FAFB; 
+}
+
+/* Célula da Matriz e Destaques */
+.matrix-cell { 
+    transition: all 0.3s ease-in-out; 
+}
+.highlight-result { 
+    background-color: #FBCFE8 !important; 
+    border-color: #EC4899 !important; 
+    transform: scale(1.1); 
+}
+.highlight-pair-1 { 
+    background-color: #FEF08A !important; 
+    border-color: #F59E0B !important; 
+    transform: scale(1.05); 
+}
+.highlight-pair-2 { 
+    background-color: #C4B5FD !important; 
+    border-color: #8B5CF6 !important; 
+    transform: scale(1.05); 
+}
+.text-pair-1 { 
+    color: #D97706; 
+}
+.text-pair-2 { 
+    color: #7C3AED; 
+}
+
+/* Estilos para o input de verificação no modo interativo */
+.step-input {
+    width: 80px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 2px solid #9CA3AF;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+.step-input.error {
+    border-color: #DC2626;
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
