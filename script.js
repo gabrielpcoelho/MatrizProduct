@@ -18,10 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const numpad = {
         container: document.getElementById('customNumpad'),
-        buttons: document.querySelectorAll('.numpad-btn'),
-        clearBtn: document.getElementById('numpad-clear'),
-        backspaceBtn: document.getElementById('numpad-backspace'),
-        doneBtn: document.getElementById('numpad-done'),
+        buttons: document.querySelectorAll('#customNumpad button'),
     };
 
     let activeInput = null;
@@ -104,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (isInput) {
                         cell.type = 'number';
                         cell.value = Math.floor(Math.random() * 10);
-                        // Lógica para desativar teclado padrão em telas pequenas
                         if (window.innerWidth < 768) {
                              cell.setAttribute('readonly', true);
                         }
@@ -344,12 +340,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA DO TECLADO NUMÉRICO CUSTOMIZADO ---
 
     function showNumpad(inputElement) {
-        if (window.innerWidth >= 768) return; // Não mostra em telas grandes
+        if (window.innerWidth >= 768) return; 
 
         activeInput = inputElement;
         numpad.container.classList.remove('hidden');
         numpad.container.classList.add('fade-in-up');
-        activeInput.value = ''; // Limpa o valor para nova inserção
+        activeInput.value = ''; 
     }
 
     function hideNumpad() {
@@ -360,8 +356,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleNumpadInput(e) {
         if (!activeInput) return;
-        const value = e.target.textContent;
-        activeInput.value += value;
+        
+        const key = e.target.dataset.key || e.target.textContent;
+        let currentValue = activeInput.value;
+
+        switch(key) {
+            case 'done':
+                hideNumpad();
+                break;
+            case 'clear':
+                currentValue = '';
+                break;
+            case 'backspace':
+                currentValue = currentValue.slice(0, -1);
+                break;
+            case '-':
+                if (currentValue.length === 0) {
+                    currentValue = '-';
+                }
+                break;
+            default: // Números
+                currentValue += key;
+                break;
+        }
+        activeInput.value = currentValue;
     }
 
     controls.matrixContainer.addEventListener('click', (e) => {
@@ -371,11 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     numpad.buttons.forEach(btn => btn.addEventListener('click', handleNumpadInput));
-    numpad.clearBtn.addEventListener('click', () => { if(activeInput) activeInput.value = ''; });
-    numpad.backspaceBtn.addEventListener('click', () => {
-        if (activeInput) activeInput.value = activeInput.value.slice(0, -1);
-    });
-    numpad.doneBtn.addEventListener('click', hideNumpad);
 
     // --- FIM DA LÓGICA DO TECLADO ---
 
