@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produto de Matrizes Interativo</title>
 
-    <meta name="description" content="Aprenda e pratique a multiplicação de matrizes de forma visual e interativa.">
+    <meta name="description" content="Aprenda e pratique a multiplicação de matrizes de forma visual e interativa. Ideal para estudantes e entusiastas da matemática.">
     
     <meta property="og:title" content="Ferramenta Interativa de Produto de Matrizes">
     <meta property="og:description" content="Aprenda e pratique a multiplicação de matrizes de forma visual e interativa.">
@@ -21,11 +21,9 @@
     <meta name="twitter:description" content="Aprenda e pratique a multiplicação de matrizes de forma visual e interativa.">
     <meta name="twitter:image" content="https://matrizproduct.netlify.app/imagens/icone-principal.png">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +98,25 @@
             </p>
         </footer>
 
+    </div>
+
+    <div id="customNumpad" class="hidden fixed bottom-0 left-0 w-full bg-gray-200 p-2 shadow-lg rounded-t-xl z-50">
+        <div class="grid grid-cols-4 gap-2 text-xl font-bold">
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">1</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">2</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">3</button>
+            <button data-key="backspace" class="py-3 bg-yellow-400 rounded-lg shadow">&larr;</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">4</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">5</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">6</button>
+            <button data-key="-" class="py-3 bg-gray-300 rounded-lg shadow">-</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">7</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">8</button>
+            <button class="numpad-btn py-3 bg-white rounded-lg shadow">9</button>
+            <button data-key="clear" class="py-3 bg-red-500 text-white rounded-lg shadow">C</button>
+            <button class="numpad-btn col-span-2 py-3 bg-white rounded-lg shadow">0</button>
+            <button data-key="done" class="col-span-2 py-3 bg-blue-600 text-white font-bold rounded-lg shadow">Pronto</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
