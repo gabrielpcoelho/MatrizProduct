@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicação de Matrizes Interativa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 w-full max-w-5xl mx-auto fade-in">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Simulador de Multiplicação de Matrizes</h1>
+            <p class="text-gray-500 mt-2">Defina as dimensões, gere as matrizes e participe do cálculo!</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4 bg-gray-50 rounded-lg border mb-4">
+            <div class="flex items-center gap-2">
+                <label for="rowsA" class="font-semibold text-gray-700">Matriz A:</label>
+                <input type="number" id="rowsA" value="2" min="1" max="5" class="w-16 p-2 text-center border rounded-md">
+                <span class="text-gray-500">&times;</span>
+                <input type="number" id="colsA" value="2" min="1" max="5" class="w-16 p-2 text-center border rounded-md">
+            </div>
+            <div class="flex items-center gap-2">
+                <label for="rowsB" class="font-semibold text-gray-700">Matriz B:</label>
+                <input type="number" id="rowsB" value="2" min="1" max="5" class="w-16 p-2 text-center border rounded-md">
+                <span class="text-gray-500">&times;</span>
+                <input type="number" id="colsB" value="2" min="1" max="5" class="w-16 p-2 text-center border rounded-md">
+            </div>
+            <button id="generateBtn" class="bg-indigo-600 text-white font-bold py-2 px-5 rounded-lg shadow-md hover:bg-indigo-700 active:scale-95 transition-transform">
+                Gerar Matrizes
+            </button>
+        </div>
+        <p id="validationMsg" class="text-center font-semibold mb-6 h-6"></p>
+
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <span id="presentationModeLabel" class="font-semibold text-gray-400 transition-colors">Apresentação</span>
+            <label for="modeToggle" class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="modeToggle" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
+            <span id="interactiveModeLabel" class="font-semibold text-gray-700 transition-colors">Interativo</span>
+        </div>
+
+        <div id="matrixContainer" class="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-6 min-h-[120px]"></div>
+        
+        <div class="flex justify-center gap-4 mb-6">
+            <button id="controlBtn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition-transform disabled:bg-gray-400 disabled:cursor-not-allowed">
+                Iniciar Cálculo
+            </button>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 min-h-[140px]">
+            <h3 class="font-semibold text-lg text-gray-700 mb-2">Passo a Passo da Operação:</h3>
+            <div id="explanation" class="text-gray-600 font-mono text-sm md:text-base whitespace-pre-wrap"></div>
+        </div>
+
+        <div id="finalLog" class="hidden mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4 fade-in">
+            <h3 class="font-semibold text-lg text-blue-800 mb-2">Registro Completo dos Cálculos:</h3>
+            <pre id="logContent" class="text-blue-900 font-mono text-sm"></pre>
+        </div>
+
+        <footer class="text-center mt-8 pt-6 border-t border-gray-200">
+            <p class="text-sm text-gray-500">
+                Criado por Gabriel Pereira Coelho.
+            </p>
+            <p class="text-xs text-gray-400 mt-1">
+                Código-fonte disponível no <a href="https://github.com/gabrielpcoelho/MatrizProduct" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">GitHub</a>.
+            </p>
+            <p class="text-xs text-gray-400 mt-1">
+                Encontrou um bug? Tem alguma suguestão para melhorias Contate: <a href="gabrielpereiracoelho18@gmail.com" class="text-blue-500 hover:underline">seu.email@example.com</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
