@@ -75,50 +75,20 @@ input[type=number] {
     75% { transform: translateX(5px); }
 }
 
-/* Estilos para o Seletor por Rolagem */
-#scroller-container {
-    -webkit-overflow-scrolling: touch; /* Melhora a experiência em iOS */
-    scroll-snap-type: x mandatory; /* Eixo X, encaixe obrigatório */
-    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+/* Animação para o teclado customizado */
+#customNumpad.fade-in-up {
+    animation: fadeInUp 0.3s ease-out;
 }
 
-/* Oculta a barra de rolagem em navegadores Webkit (Chrome, Safari) */
-#scroller-container::-webkit-scrollbar {
-    display: none;
-}
-
-.number-item {
-    flex-shrink: 0; /* Impede que os itens encolham */
-    width: 60px; /* Largura de cada "passo" na régua */
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    scroll-snap-align: center; /* Alinha cada item ao centro do container */
-    user-select: none; /* Impede que o texto seja selecionado durante o arraste */
-}
-
-.number-item.major {
-    font-weight: 900;
-    color: #1F2937; /* preto */
-    position: relative;
-    top: -5px;
-}
-/* Linha vertical para múltiplos de 10 */
-.number-item.major::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 10px;
-    background-color: #9CA3AF;
-}
-
-.number-item.minor {
-    font-weight: 500;
-    color: #6B7280; /* cinza */
-    font-size: 1rem;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Cursor para os inputs da matriz, para indicar que são clicáveis em telas pequenas */
