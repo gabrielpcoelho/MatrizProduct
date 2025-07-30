@@ -10,10 +10,14 @@ Uma ferramenta web interativa e educacional desenvolvida para ajudar estudantes 
 
 Este projeto nasceu de uma dificuldade pessoal com a matemática, especificamente com a multiplicação de matrizes. A simples memorização da ordem das operações – linha por coluna, soma dos produtos – foi um desafio que carreguei desde o ensino básico até o superior.
 
+A ênfase da ferramenta não está na simples memorização da fórmula, mas sim em guiar o estudante através de cada etapa do processo. O objetivo é que, ao interagir com o fluxo de cálculo, o usuário possa construir uma compreensão sólida da lógica por trás da multiplicação de matrizes, em vez de apenas decorar um algoritmo.
+
 Acredito que, se uma ferramenta visual e interativa como esta estivesse disponível na época, o aprendizado teria sido muito mais intuitivo e menos problemático. O objetivo deste projeto é ser essa ferramenta: uma ponte para ajudar outros estudantes a superar os mesmos obstáculos, transformando um tópico abstrato em algo concreto e fácil de acompanhar.
 
 ### Próximos Passos
-Como uma evolução natural deste projeto, pretendo desenvolver uma ferramenta semelhante para o cálculo de **determinantes**, outro tópico que pode se beneficiar imensamente de uma abordagem visual e interativa.
+
+* **Calculadora de Determinantes:** Como uma evolução natural deste projeto, pretendo desenvolver uma ferramenta semelhante para o cálculo de determinantes, outro tópico que pode se beneficiar imensamente de uma abordagem visual e interativa.
+* **Visualização da Lógica:** Em um futuro próximo, pretendo criar um módulo que demonstre visualmente *por que* o produto de matrizes é definido dessa forma , aprofundando ainda mais o entendimento do conceito.
 
 ## 💻 Acesso à Ferramenta
 
@@ -25,9 +29,10 @@ Esta ferramenta é 100% online e não requer nenhuma instalação. Basta acessar
 
 ## ⚙️ Como a Ferramenta Funciona
 
-Esta aplicação educacional foi projetada para desmistificar um dos tópicos mais desafiadores da matemática linear. Ela oferece uma experiência visual e prática, permitindo que os usuários aprendam no seu próprio ritmo e de acordo com seu estilo de aprendizagem.
+Esta aplicação educacional foi projetada para desmistificar um dos tópicos mais desafiadores da álgebra linear para alunos do ensino médio. Ela oferece uma experiência visual e prática, permitindo que os usuários aprendam no seu próprio ritmo e de acordo com seu estilo de aprendizagem.
 
 ### 1. Configuração das Matrizes
+
 Ao acessar a ferramenta, a primeira etapa é definir a estrutura do problema:
 
 * **Escolha das Dimensões:** O usuário tem controle total sobre as dimensões das matrizes, definindo o número de linhas e colunas para a **Matriz A** e **Matriz B**.
@@ -35,15 +40,19 @@ Ao acessar a ferramenta, a primeira etapa é definir a estrutura do problema:
 * **Geração e Edição:** Com um clique, as matrizes são geradas com valores aleatórios, mas todos os campos são editáveis para que o usuário possa inserir problemas específicos.
 
 ### 2. A Escolha do Modo de Aprendizagem
+
 O grande diferencial da aplicação é a possibilidade de escolher entre dois modos de operação:
 
 #### Modo Apresentação (Para Aprender Observando)
+
 Ideal para quem está vendo o tópico pela primeira vez. A ferramenta executa e exibe cada etapa do cálculo automaticamente, destacando as linhas, colunas e células envolvidas e explicando a operation em tempo real.
 
 #### Modo Interativo (Para Aprender Praticando)
+
 Este modo transforma o aprendizado em uma experiência ativa. A ferramenta para em cada etapa e desafia o usuário a inserir o resultado do cálculo. O sistema valida a resposta e só avança se estiver correta, ajudando a fixar o conhecimento e a identificar dificuldades.
 
 ### 3. Visualização e Resultado Final
+
 Independentemente do modo, a ferramenta oferece um feedback claro com um log de operações para a célula atual e, ao final do processo, um registro completo de todos os cálculos realizados.
 
 ## 🚀 Tecnologias Utilizadas
